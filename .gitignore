@@ -79,8 +79,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
-clustersupport/.ipynb_checkpoints/
-notebooks/.ipynb_checkpoints/
+.ipynb_checkpoints/
 
 # IPython
 profile_default/
