@@ -152,5 +152,4 @@ gen
 # Project files
 *.ipynb
 *.csv
-notebooks/
 .idea/
