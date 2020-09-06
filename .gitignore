@@ -151,3 +151,4 @@ gen
 
 # Project files
 .idea/
+docs/notebooks/*.png
