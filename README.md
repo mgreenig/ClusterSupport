@@ -179,8 +179,8 @@ cs.KMeans().elbow_plot(X = data, parameter = 'n_clusters', parameter_range = ran
 
 ![Example elbow plot](https://github.com/mgreenig/ClusterSupport/raw/master/docs/artwork/example_elbow_plot.png)
 
-The `gap_statistic()` method is another function that can be used to optimise hyperparameters. 
-It calculates the [gap statistic](https://statweb.stanford.edu/~gwalther/gap) and its standard errors across a range of hyperparameter values.
+The `gap_statistic()` method is another function can be used to optimise hyperparameters. 
+It calculates the [gap statistic](https://statweb.stanford.edu/~gwalther/gap) and its standard error across a range of hyperparameter values.
 For example, to optimise the number of clusters used in K-means clustering, we call the following:
 
 ``` python
@@ -216,7 +216,7 @@ consensus_data = cs.KMeans().consensus_cluster(X = data, parameter = 'n_clusters
 
 Consensus clustering does not rely on any particular clustering metric. The `plot` argument defaults to `True` and causes the function to output the empirical CDFs for consensus values for different hyperparameter values. 
 [Monti et al](https://link.springer.com/content/pdf/10.1023/A:1023949509487.pdf) suggesting picking the number of clusters k at which the largest increase is seen in the area under the CDF between k clusters and k-1 clusters. 
-[Șenbabaoğlu et al](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4145288/) suggest a different method, involving selecting the number of clusters k at which the proportion of unambiguous consensus values (values <0.1 or >0.9) is greatest.  
+[Senbabaoglu et al](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4145288/) suggest a different method, involving selecting the number of clusters k at which the proportion of unambiguous consensus values (values <0.1 or >0.9) is greatest.  
 The `consensus_cluster()` function returns a Pandas DataFrame of size `(len(parameter_range), 2)`, containing columns for the proportion of unambiguous clusterings and the area under the CDF for every value of the hyperparameter of interest.
 
 |   n_clusters |   proportion_unambiguous_clusterings |   area_under_cdf |
