@@ -139,9 +139,9 @@ This generates a Pandas Series showing the change in the clustering metric that 
 
 Finally we can build a logistic regression model to calculate a coefficient for each feature in each cluster and return the p-value of the coefficient under the null hypothesis:
 
-$$\frac{\beta}{\text{SE}(\beta)} \sim \mathcal{N}(\mu = 0, \sigma^{2} = 1)$$ 
+<img src="https://latex.codecogs.com/svg.latex?\frac{\beta}{\text{SE}(\beta)}%20\sim%20\mathcal{N}(\mu%20=%200,%20\sigma^{2}%20=%201)" class="center">
 
-This is done using the `logistic_regression()` function, which builds a logistic regression model for each cluster with y = 1 if an instance is in the cluster, and y = 0 if not:
+Where SE() denotes the standard error of the coefficient. This is done using the `logistic_regression()` function, which builds a logistic regression model for each cluster with y = 1 if an instance is in the cluster, and y = 0 if not:
 
 ```
 feature_LR = cs.KMeans(n_clusters = 3).logistic_regression(X = data, output = 'p-value')
