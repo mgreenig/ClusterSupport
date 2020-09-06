@@ -88,7 +88,7 @@ clustering = cs.KMeans(n_clusters = 8).fit(data)
 clf_assessment = clustering.classifier_assessment(classifier = 'logreg', labels = reduced_fit_labels, roc_plot = True, n = 50, save_fig = True, random_state = 123)
 ```
 
-![Example ROC curves](https://github.com/mgreenig/ClusterSupport/blob/master/docs/artwork/example_cluster_ROC_curves.png)
+![Example ROC curves](https://github.com/mgreenig/ClusterSupport/raw/master/docs/artwork/example_cluster_ROC_curves.png)
 
 Specifying `roc_plot = True` uses matplotlib to plot an ROC curve for each cluster so that the user can see how well each cluster is classified. 
 The function also outputs a Pandas DataFrame with classification metrics (precision, recall, and f1 score) calculated for each cluster.
@@ -177,7 +177,7 @@ The simplest optimization method is `elbow_plot()`, which constructs a plot of h
 cs.KMeans().elbow_plot(X = data, parameter = 'n_clusters', parameter_range = range(2,10), metric = 'silhouette_score')
 ```
 
-![Example elbow plot](https://github.com/mgreenig/ClusterSupport/blob/master/docs/artwork/example_elbow_plot.png)
+![Example elbow plot](https://github.com/mgreenig/ClusterSupport/raw/master/docs/artwork/example_elbow_plot.png)
 
 The `gap_statistic()` method is another function can be used to optimise hyperparameters. 
 It calculates the [gap statistic](https://statweb.stanford.edu/~gwalther/gap) and its standard errors across a range of hyperparameter values.
@@ -212,7 +212,7 @@ We can also use the `consensus_cluster()` function to run [Monti consensus clust
 consensus_data = cs.KMeans().consensus_cluster(X = data, parameter = 'n_clusters', parameter_range = range(2,10), plot = True, random_state = 123)
 ```
 
-![Example CDF plot](https://github.com/mgreenig/ClusterSupport/blob/master/docs/artwork/example_cdf_plot.png)
+![Example CDF plot](https://github.com/mgreenig/ClusterSupport/raw/master/docs/artwork/example_cdf_plot.png)
 
 Consensus clustering does not rely on any particular clustering metric. The `plot` argument defaults to `True` and causes the function to output the empirical CDFs for consensus values for different hyperparameter values. 
 [Monti et al](https://link.springer.com/content/pdf/10.1023/A:1023949509487.pdf) suggesting picking the number of clusters k at which the largest increase is seen in the area under the CDF between k clusters and k-1 clusters. 
