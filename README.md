@@ -25,14 +25,14 @@ pip install clustersupport
 ClusterSupport inherits clustering classes from scikit-learn and wraps their `.fit()` methods so that calling `.fit()`
 returns an instance of the `ClusteringResult()` class. Let's load in one of scikit-learn's toy datasets to see some of the functionality.
 
-```
+``` python
 from sklearn.datasets import load_boston
 data = pd.DataFrame(load_boston()['data'], columns = load_boston()['feature_names'])
 ```
 
 And then we can call the `.fit()` method to return an instance of our `ClusteringResult()` class.
 
-```
+``` python
 import clustersupport as cs
 results = cs.KMeans(n_clusters = 3).fit(data)
 ```
@@ -107,14 +107,14 @@ between feature values for instances inside the cluster compared to instances ou
 (n_clusters, n_features), with the calculated t-statistic or p-value for the respective cluster/feature combination in each cell. 
 Welch's two-sample t-test with unequal variances is used for the calculation.
 
-```
+``` python
 feature_t_tests = cs.KMeans(n_clusters = 3).t_test(X = data, output = 'p-value')
 ```
 
 You can also output the raw t-statistics with `output = 't-statistic'`. 
 Alternatively you can conduct a non-parametric Mann-Whitney U test to test the ranks of feature values inside/outside each cluster.
 
-```
+``` python
 feature_MW = cs.KMeans(n_clusters = 3).mann_whitney(X = data, output = 'p-value')
 ```
 
@@ -123,7 +123,7 @@ This also returns a DataFrame of size (n_clusters, n_features), with the calcula
 The `leave_one_out()` function assesses the global contribution of each feature to the clustering by calculating a global metric like the Calinski-Harabasz score
 or the sum of intra-cluster distances (a.k.a inertia).
 
-```
+``` python
 feature_LOO = cs.KMeans(n_clusters = 3).leave_one_out(X = data, metric = 'CH_score')
 ```
 
@@ -151,7 +151,7 @@ Finally we can build a logistic regression model to calculate a coefficient for 
 
 Where SE() denotes the standard error of the coefficient. This is done using the `logistic_regression()` function, which builds a logistic regression model for each cluster with y = 1 if an instance is in the cluster, and y = 0 if not:
 
-```
+``` python
 feature_LR = cs.KMeans(n_clusters = 3).logistic_regression(X = data, output = 'p-value')
 ```
 
@@ -173,7 +173,7 @@ Like the feature methods, these functions are called as methods under the cluste
 
 The simplest optimization method is `elbow_plot()`, which constructs a plot of hyperparameter values compared to a clustering metric.
 
-```
+``` python
 cs.KMeans().elbow_plot(X = data, parameter = 'n_clusters', parameter_range = range(2,10), metric = 'silhouette_score')
 ```
 
@@ -183,7 +183,7 @@ The `gap_statistic()` method is another function can be used to optimise hyperpa
 It calculates the [gap statistic](https://statweb.stanford.edu/~gwalther/gap) and its standard errors across a range of hyperparameter values.
 For example, to optimise the number of clusters used in K-means clustering, we call the following:
 
-```
+``` python
 gap_statistics = cs.KMeans().gap_statistic(X = data, parameter = 'n_clusters', parameter_range = range(2,10), metric = 'inertia', random_state = 123)
 ```
 
@@ -208,7 +208,7 @@ The function returns a data frame of size `(len(parameter_range), 2)` which cont
 
 We can also use the `consensus_cluster()` function to run [Monti consensus clustering](https://link.springer.com/content/pdf/10.1023/A:1023949509487.pdf) over a hyperparameter value range. The function is passed in a similar way to the `gap_statistic()` function.
 
-```
+``` python
 consensus_data = cs.KMeans().consensus_cluster(X = data, parameter = 'n_clusters', parameter_range = range(2,10), plot = True, random_state = 123)
 ```
 
