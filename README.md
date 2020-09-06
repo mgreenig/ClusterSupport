@@ -169,7 +169,7 @@ The simplest optimization method is `elbow_plot()`, which constructs a plot of h
 cs.KMeans().elbow_plot(X = data, parameter = 'n_clusters', parameter_range = range(2,10), metric = 'silhouette_score')
 ```
 
-[!Example elbow plot](docs/artwork/example_elbow_plot.png)
+![Example elbow plot](docs/artwork/example_elbow_plot.png)
 
 The `gap_statistic()` method is another function can be used to optimise hyperparameters. 
 It calculates the [gap statistic](https://statweb.stanford.edu/~gwalther/gap) and its standard errors across a range of hyperparameter values.
