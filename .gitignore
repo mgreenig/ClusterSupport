@@ -80,6 +80,7 @@ target/
 
 # Jupyter Notebook
 clustersupport/.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
 
 # IPython
 profile_default/
@@ -150,6 +151,4 @@ out
 gen
 
 # Project files
-*.ipynb
-*.csv
 .idea/
