@@ -120,7 +120,7 @@ feature_MW = cs.KMeans(n_clusters = 3).mann_whitney(X = data, output = 'p-value'
 
 This also returns a DataFrame of size (n_clusters, n_features), with the calculated statistic or p-value for the cluster/feature combination in each cell.
 
-The `leave_one_out()` function assesses the global contribution of each feature to the clustering by calculating a global metric like the Calinski-Harabasz score
+The `leave_one_out()` function assesses the global contribution of each feature to the clustering by running the clustering with and without each feature and calculating a global metric like the Calinski-Harabasz score
 or the sum of intra-cluster distances (a.k.a inertia).
 
 ``` python
