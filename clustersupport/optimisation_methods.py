@@ -244,7 +244,7 @@ class OptimisationMethods:
             # for each resample, randomly-sample data, cluster, and record co-appearances (in both clusters and samples)
             for i in range(n_bootstraps):
 
-                random_ints_for_idx = np.random.randint(low=0, high=n_points, size=sample_size)
+                random_ints_for_idx = np.random.choice(n_points, size=sample_size, replace = False)
                 sample = X[random_ints_for_idx]
                 cluster_result = self.fit(sample, *args, **kwargs)
                 labs = cluster_result.labels_
