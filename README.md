@@ -99,7 +99,7 @@ The AUC for each cluster reflects the classifier's ability to distinguish instan
 
 ## Analysing feature importances in clustering
 
-ClusterSupport also provides methods for analysing the importance of different features in the cluster, either on at a global or per-cluster level. 
+ClusterSupport also provides methods for analysing the contributions of the different features to the clustering, either at a global or per-cluster level. 
 These functions are called as methods under the clustering classes inherited from scikit-learn (e.g. `clustersupport.KMeans()`).
 
 The `t_test` method calculates a t-statistic for each feature in each cluster, calculated as a scaled difference-of-means 
