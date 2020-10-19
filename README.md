@@ -6,11 +6,11 @@ with additional functions for the analysis and optimisation of clustering result
 ## Dependencies
 
 ClusterSupport requires the following packages:
-- scikit-learn~=0.22.1
-- numpy~=1.18.1
-- pandas~=1.0.3
-- scipy~=1.4.1
-- matplotlib~=3.1.3
+- scikit-learn>=0.22.1
+- numpy>=1.18.1
+- pandas>=1.0.3
+- scipy>=1.4.1
+- matplotlib>=3.1.3
 
 ## Getting started
 
