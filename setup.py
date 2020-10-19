@@ -8,7 +8,7 @@ with open('requirements.txt', 'r') as req_file:
 
 setuptools.setup(
     name='clustersupport', # Replace with your own username
-    version='0.0.7',
+    version='0.0.8',
     author='Matthew Greenig',
     author_email='matt.greenig@gmail.com',
     description='A small package for enhancing scikit-learn\'s clustering capabilities',
