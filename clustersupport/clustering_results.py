@@ -64,13 +64,13 @@ class ClusteringResult:
         self.n_clusters = len(set(labels))
 
     # calculates the sum of distances around the cluster centroid for a cluster specified by cluster_mask
-    def distance_around_mean(X, cluster_mask, scale = True, dist_metric='sqeuclidean'):
+    def distance_around_mean(self, cluster_mask, scale = True, dist_metric='sqeuclidean'):
 
         viable_dist_metrics = {'euclidean', 'sqeuclidean', 'cosine', 'manhattan'}
         if dist_metric not in viable_dist_metrics:
             raise ValueError('Please choose a viable distance metric from: {}'.format(', '.join(viable_dist_metrics)))
 
-        X = X.scaled_X if scale else X.array_X
+        X = self.scaled_X if scale else self.array_X
 
         centroid = np.mean(X[cluster_mask], axis=0)
 
